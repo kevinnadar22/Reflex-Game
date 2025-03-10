@@ -1,0 +1,358 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background-color: #f9f9f9;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23dddddd' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+                0 1px 8px rgba(0, 0, 0, 0.05),
+                0 0 0 5px #FFD166,
+                0 0 0 10px #06D6A0,
+                0 0 0 15px #118AB2;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Typography */
+h1, h3 {
+    font-family: 'Bubblegum Sans', cursive;
+    text-align: center;
+    color: #118AB2;
+    text-shadow: 2px 2px 0 #FFD166;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Game Area */
+.game-area {
+    position: relative;
+    height: 300px;
+    border-radius: 15px;
+    background-color: #EF476F; /* Start with red */
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.1s;
+    overflow: hidden;
+}
+
+.game-area.green {
+    background-color: #06D6A0;
+}
+
+/* Character */
+.character-container {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.character {
+    width: 100px;
+    height: 100px;
+    background-color: #FFD166;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.eyes {
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+}
+
+.eye {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.eye::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+}
+
+.mouth {
+    position: absolute;
+    bottom: 25px;
+    left: 30px;
+    width: 40px;
+    height: 20px;
+    border-radius: 0 0 20px 20px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Add arms for clapping and other animations */
+.arms {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.arm {
+    position: absolute;
+    width: 15px;
+    height: 40px;
+    background-color: #FFD166;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.arm.left {
+    top: 45px;
+    left: -10px;
+    transform: rotate(20deg);
+    transform-origin: top right;
+}
+
+.arm.right {
+    top: 45px;
+    right: -10px;
+    transform: rotate(-20deg);
+    transform-origin: top left;
+}
+
+/* Message Box */
+.message-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+#message {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+/* Results Area */
+.results-area {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.result-box {
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+    margin: 0 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.result-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #118AB2;
+}
+
+/* Instructions */
+.instructions {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.instructions h3 {
+    margin-bottom: 15px;
+}
+
+.instructions ol {
+    margin-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Button */
+button {
+    background-color: #118AB2;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-family: 'Bubblegum Sans', cursive;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 0 #0a6a8a;
+    position: relative;
+    top: 0;
+}
+
+button:hover {
+    background-color: #0a6a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #085670;
+}
+
+button:active {
+    top: 5px;
+    box-shadow: 0 0 0 #085670;
+}
+
+/* Animation Classes */
+.excited .eye::after {
+    animation: excited 0.3s infinite alternate;
+}
+
+.sad .mouth {
+    transform: rotate(180deg);
+    bottom: 35px;
+}
+
+.happy .mouth {
+    height: 25px;
+}
+
+/* New animation classes */
+/* Clapping animation for excellent performance */
+.clapping .arm {
+    animation: clap 0.4s infinite alternate;
+}
+
+.clapping .arm.left {
+    animation-delay: 0s;
+}
+
+.clapping .arm.right {
+    animation-delay: 0.2s;
+}
+
+/* Jump animation for good performance */
+.jumping {
+    animation: jump 0.6s ease;
+}
+
+/* Spin animation for amazing performance */
+.spinning {
+    animation: spin 1s ease-in-out;
+}
+
+/* Celebration animation for best time */
+.celebrating {
+    animation: celebrate 1s ease infinite;
+}
+
+.celebrating .eye::after {
+    animation: celebrate-eyes 0.3s infinite alternate;
+}
+
+.celebrating .mouth {
+    height: 25px;
+    width: 45px;
+    left: 27px;
+}
+
+/* Very fast performance - amazed expression */
+.amazed .eye {
+    height: 25px;
+    width: 25px;
+}
+
+.amazed .mouth {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    bottom: 30px;
+    left: 42px;
+}
+
+/* Animation Keyframes */
+@keyframes excited {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(2px, 2px); }
+}
+
+@keyframes clap {
+    0% { 
+        transform: rotate(20deg) translateX(0);
+    }
+    100% { 
+        transform: rotate(20deg) translateX(10px);
+    }
+}
+
+@keyframes jump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes celebrate {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes celebrate-eyes {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.3); }
+} 

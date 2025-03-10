@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoon Reflex Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Howler.js for Sound Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>Cartoon Reflex Challenge</h1>
+            <p class="subtitle">Press ENTER when the screen turns GREEN!</p>
+        </div>
+
+        <div class="game-area" id="gameArea">
+            <div class="character-container">
+                <div class="character" id="character">
+                    <div class="eyes">
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                    </div>
+                    <div class="mouth"></div>
+                    <div class="arms">
+                        <div class="arm left"></div>
+                        <div class="arm right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="message-box" id="messageBox">
+                <p id="message">Ready to test your reflexes?</p>
+                <button id="startButton">Start Game</button>
+            </div>
+        </div>
+
+        <div class="results-area">
+            <div class="result-box">
+                <h3>Your Last Time:</h3>
+                <p id="lastResult">--</p>
+            </div>
+            <div class="result-box">
+                <h3>Best Time:</h3>
+                <p id="bestResult">--</p>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How To Play:</h3>
+            <ol>
+                <li>Click the "Start Game" button</li>
+                <li>Wait for the RED screen to turn GREEN</li>
+                <li>Press ENTER as fast as you can when it turns GREEN</li>
+                <li>See your reaction time!</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
